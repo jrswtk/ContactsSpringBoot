@@ -1,0 +1,41 @@
+DROP TABLE IF EXISTS Contact;
+DROP TABLE IF EXISTS Registration;
+DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Profile;
+
+CREATE TABLE Profile(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+role ENUM('ADMIN', 'USER') UNIQUE NOT NULL
+);
+
+CREATE TABLE User(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+profile_id INT NOT NULL,
+first_name VARCHAR(20),
+last_name VARCHAR(30),
+email VARCHAR(50),
+pass VARCHAR(100),
+is_confirmed BOOLEAN,
+FOREIGN KEY (profile_id) REFERENCES Profile (id)
+);
+
+CREATE TABLE Registration(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+email VARCHAR(50),
+token VARCHAR(200)
+);
+
+CREATE TABLE Contact(
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+user_id INT NULL DEFAULT NULL,
+first_name VARCHAR(20),
+last_name VARCHAR(30),
+phone_number VARCHAR(20),
+email VARCHAR(50),
+image LONGBLOB,
+contact_type ENUM('FAMILY', 'WORK', 'FRIENDS', 'VIP', 'OTHER') DEFAULT 'OTHER',
+FOREIGN KEY (user_id) REFERENCES User (id)
+);
+
+INSERT INTO registration.Profile(role) VALUES('USER');
+INSERT INTO registration.Profile(role) VALUES('ADMIN');

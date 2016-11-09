@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+		<title>Strona glowna</title>
+</head>
+	<body>
+		<div class="cover">
+			<div class="navbar navbar-default">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
+							<span class="sr-only">Toggle navigation</span> 
+							<span class="icon-bar"></span> <span class="icon-bar"></span> 
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="navbar-ex-collapse">
+						<ul class="nav navbar-nav navbar-left">
+							<li class="active"><a href="/reg/">Strona glowna</a></li>
+							<li><a href="/reg/contacts">Twoje kontakty</a></li>
+							<li><a href="/reg/registration">Rejestracja</a></li>
+							<li th:if="${(currentUser != null) and (currentUser.role.name() == 'ADMIN')}"><a href="/reg/admin">Admin</a></li>
+							<li th:if="${(currentUser != null) and (currentUser.role.name() == 'USER' or currentUser.role.name() == 'ADMIN')}"><a href="/reg/login?logout">Wyloguj (<i th:text="${currentUser.name}">Nazwa</i>)</a></li>
+							<li th:if="${currentUser == null}"> <a href="/reg/login">Zaloguj</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<div th:if="${message != null}">
+							<div class="alert alert-success">
+								<p th:text="${message}">Message</p>
+							</div>
+						</div>
+						<div th:if="${error != null}">
+							<div class="alert alert-danger">
+								<p th:text="${error}">Error</p>
+							</div>
+						</div>
+						<a href="/reg/contacts"><img th:src="@{/images/contacts_256.png}" /></a>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<h1 class="text-center text-muted">Twoje kontakty</h1>
+						<p>Przegladaj i dodawaj nowe kontakty</p>
+						<a class="btn btn-primary" href="/reg/contacts">Zobacz kontakty<br /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
