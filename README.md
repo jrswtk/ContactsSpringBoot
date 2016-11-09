@@ -16,7 +16,7 @@ where are saved contacts, users, data of registration and users profiles. Progra
 
 #### Before a first run:
 
-1. Configure a file to MySQL database: /resources/application.properties
+- Configure a file to MySQL database: /resources/application.properties
 
 ```
 spring.datasource.url=jdbc:mysql://localhost:3306/[database_name]
@@ -25,8 +25,7 @@ spring.datasource.password=[password]
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 ```
 
-2. Create database schema:
-- Execute a sql file: /resources/database.sql
+- Create database schema - execute a sql file: /resources/database.sql
 
 #### Running Contacts application:
 
