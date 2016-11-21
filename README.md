@@ -1,7 +1,7 @@
 # Contacts (Spring Boot + MVC):
 
-Webapp to save the contacts (emails, phone numbers). It have access to database, 
-where are saved contacts, users, data of registration and users profiles. Program allows on create the accounts, which must be confirmed by email. Admin have access to manage users accounts. To contacts can be added the images. Data of contacts are added and edited using the REST transfer.
+Webapp for saving contacts (emails, phone numbers). Program has an access to the database 
+where are saved contacts, users, data of registration and profiles of users. Program allows on create an account which must be confirmed by email. Admin has an access to the management by the accounts of users. Images can be added to contacts. Data of contacts are being added and edit by REST.
 
 ### Technologies:
 
@@ -14,9 +14,9 @@ where are saved contacts, users, data of registration and users profiles. Progra
 - AngularJS
 - Maven
 
-#### Before a first run:
+#### Before the first run:
 
-- Configure a file to MySQL database: /resources/application.properties
+- Configure the file to the MySQL database: /resources/application.properties
 
 ```
 spring.datasource.url=jdbc:mysql://localhost:3306/[database_name]
@@ -25,9 +25,9 @@ spring.datasource.password=[password]
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 ```
 
-- Create database schema - execute a sql file: /resources/database.sql
+- Create database schema - execute the sql file: /resources/database.sql
 
-#### Running Contacts application:
+#### Starting the Contacts application:
 
 Maven:
 

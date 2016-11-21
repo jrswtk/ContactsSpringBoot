@@ -31,7 +31,12 @@ public class EmailServiceImpl implements EmailService{
 
     private final SimpleMailMessage constructConfirmationEmailMessage(Registration registration, String baseUrl) {
         registerMessage.setTo(registration.getEmail());
-        registerMessage.setText(MessageFormat.format(registerMessageBodyTemplate,baseUrl,registration.getEmail(),registration.getToken()));
+        registerMessage.setText(MessageFormat.format(
+				registerMessageBodyTemplate,
+				baseUrl,
+				registration.getEmail(),
+				registration.getToken()));
+				
         return registerMessage;
     }
 }
