@@ -64,8 +64,7 @@ public class ContactsRestController {
 	public List<ContactJson> getContactsByUserId() throws UserNotFoundException {
 		List<ContactJson> contacts = null;
 		
-		User user = userService.findByEmail(
-				getCurrentUserEmail());
+		User user = userService.findByEmail(getCurrentUserEmail());
 				
 		if(user != null) {
 			long userId = user.getId();

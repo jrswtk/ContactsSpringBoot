@@ -51,8 +51,7 @@ public class AccountFormValidator implements Validator {
 	
 	private boolean validateEmail(String email) {
 		try {
-			return userService.findByEmail(email)
-					!= null;
+			return userService.findByEmail(email) != null;
 		} catch (UserNotFoundException e) {
 			// TODO Auto-generated catch block
 			return false;
@@ -61,8 +60,7 @@ public class AccountFormValidator implements Validator {
 
 	private boolean validateRegistration(String email) {
 		try {
-			return registrationService.findByEmail(email) 
-					!= null;
+			return registrationService.findByEmail(email) != null;
 		} catch (RegistrationNotFoundException e) {
 			// TODO Auto-generated catch block
 			return false;

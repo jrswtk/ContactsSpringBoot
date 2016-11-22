@@ -43,17 +43,13 @@ public class CurrentUserAdviceController {
 
 			for (GrantedAuthority ga : auths) {
 				if (ga.getAuthority().equals(RoleEnum.ADMIN.toString())) {
-
 					currentUser.setRole(RoleEnum.ADMIN);
-
 					return currentUser;
-
 				} else if (ga.getAuthority().equals(RoleEnum.USER.toString())) {
-
 					currentUser.setRole(RoleEnum.USER);
 				}
 			}
-
+			
 		}
 
 		return currentUser;
