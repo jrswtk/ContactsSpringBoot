@@ -30,12 +30,9 @@ public class UserSecurity implements UserDetailsService {
 			user = userService.findByEmail(userEmail);
 		} catch (UserNotFoundException e) {
 			// TODO Auto-generated catch block
+			throw new UsernameNotFoundException("Podany e-mail nie znajduje sie w bazie danych.");
 		}
-		
-		if(user == null || !user.isConfirmed()) {
-			return null;
-		}
-		
+				
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		
 		authorities.add(new SimpleGrantedAuthority(user.getProfile().getRole().toString()));
